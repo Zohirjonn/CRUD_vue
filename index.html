@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>CRUD amaliyot</title>
+</head>
+<body>
+    <div id="main">
+        <div class="container mt-5">
+          <div class="row ">
+            <div class="col-md-4">
+                <div class=" alert alert-danger mb-3 text-center" v-if="error">
+                        {{errorHandler}}
+                </div>
+                <!-- FORM -->
+                <form>
+                    <div class="mb-3">
+                        <label for="name">Ismingizni kiriting:</label>
+                        <input type="text" id="name" class="form-control" placeholder="Ism" v-model="name" autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email">Emailingizni kiriting:</label>
+                        <input type="email" id="email" class="form-control" placeholder="Email" v-model="email" autocomplete="off"  >
+                    </div>
+                    <div class="mb-3">
+                        <label for="job">Ish turi:</label>
+                        <select  id="job" class="form-control" v-model="job">
+                            <option >Backend developer</option>
+                            <option >Frondend developer</option>
+                            <option >Mobile developer</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" type="button" @click="addUser">Kiritish</button>
+                </form>
+            </div>
+            <div class="col-md-8 " >
+                <h3>Ro'yhatdan o'tganlar soni: {{users.length}}</h3>
+                <table class="table"> 
+                    <thead>
+                        <tr>
+                            <th scope="col">User id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Job</th>
+                            <th scope="col">Date</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="user in users">
+                            <th>{{user.id}}</th>
+                            <th>{{user.name}}</th>
+                            <th>{{user.email}}</th>
+                            <th>{{user.job}}</th>
+                            <th>{{user.date}}</th>
+                            <th><button type="button" class="btn btn-success" @click="updateUser(user.id)">Update</button></th>
+                            <th><button type="button" class="btn btn-danger" @click="deleteUser(user.id)">Delete</button></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>    <script src="./main.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>

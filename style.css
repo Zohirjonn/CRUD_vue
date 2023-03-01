@@ -1,0 +1,22 @@
+.alert {
+    animation: alertt 2s linear infinite;
+    font-size: 18px;
+    color: white;
+}
+
+@keyframes alertt {
+    0% {
+        transform: scale(1);
+        background-color: rgba(255, 0, 0, 0.383);
+    }
+
+    50% {
+        transform: scale(1.1);
+        background-color: rgb(255, 0, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: rgba(255, 0, 0, 0.385);
+    }
+}
